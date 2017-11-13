@@ -11,7 +11,7 @@ campass=$(cat credentials.config | cut -f2 -d:)
 basepath="/data/video"
 cam1="livingroom"
 cam2="frontdoor"
-camlist=$(getCams)
+camlist=$(getCams $camListFile)
 
 camipport1=""
 camipport2=""
@@ -21,7 +21,7 @@ timestamp=$(date +%Y-%m-%d_%H.%M)
 
 for i in "${camlist[@]}"
 do
-	echo $i
+	echo "cam $i"
 done
 
 #ffmpeg -i rtsp://username:password@192.168.1.201:80/videoMain -r 30 -vcodec copy -an -t 900 $RECpath/cam01/$name.mp4 </dev/null >/dev/null 2>/tmp/cam01.log &
